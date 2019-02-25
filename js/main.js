@@ -83,10 +83,21 @@
               showResetScreen();
             }
 
-            // create and play explosion sound
-            
-          }
-        });
+            // create and play explosion sound    // create and play explosion sound
+    let explosion = document.createElement('audio');
+    // create an <audio></audio element>
+    explosion.src = "audio/explosion.mp3"; // add an audio source
+    document.body.appendChild(explosion); // add the element to the page
+
+    explosion.addEventListener('ended', () => {
+      document.body.removeChild(explosion);
+
+    });
+
+    explosion.play();    
+    
+    }
+    });
 
         bullet.y -= bullet.speed;
 
@@ -137,7 +148,17 @@
     bullets.push(newBullet);
 
     // create and play cheesy laser sound
-    
+    let laser = document.createElement('audio');
+    // create an <audio></audio element>
+    laser.src = "audio/laser.mp3"; // add an audio source
+    document.body.appendChild(laser); // add the element to the page
+
+    laser.addEventListener('ended', () => {
+      document.body.removeChild(laser)
+
+    });
+
+    laser.play();
   }
 
   function movePlayer(e) {
